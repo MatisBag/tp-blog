@@ -68,6 +68,8 @@ body.center {
 
 main {
     flex: 1;
+    width: 90%;
+    margin: 0 auto;
 }
 
 header {
@@ -152,7 +154,7 @@ header .header>div>a {
 
 
 .news {
-    width: 90%;
+    width: 100%;
     max-width: 1100px;
     margin: 10px auto;
 }
