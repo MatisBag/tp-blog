@@ -1,58 +1,11 @@
 <?php
-session_start();
+
+    $title = 'The Blog';
+    include('header.php');
+    
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link rel="stylesheet" href="./style.css">
-</head>
-
-<body>
-
-    <header>
-        <div class="header">
-            <a href="./">
-                <img src="./assets/icon-blog.png" alt="icon du Blog">
-            </a>
-
-            <div class="compte">
-                <?php
-
-                if (empty($_SESSION)) {
-                    echo '
-                    <a href="./connexion/"><div class="btn btn-basic">Se connecter</div></a> 
-                    <a href="./inscription/"><div class="btn btn-color">S\'inscrire</div></a> ';
-                } else {
-                    echo '<a href="./mon-compte/"> <div class="pseudo">' . htmlspecialchars(strtoupper($_SESSION['pseudo'])) . '</div></a>
-                <span id="account" class="material-icons">
-                    account_circle
-                </span>
-                <div class="info animated fadeIn">
-                    <p><a href="./mon-compte/">Mon compte</a></p>
-                    <p><a href="deconnection.php">Se déconnecter</a></p>
-                    
-                    <div class="info-fleche"></div>
-                </div>';
-                }
-
-                ?>
-
-            </div>
-        </div>
-
-    </header>
-
-
 
     <main>
-
-        <h1>Mon super blog !</h1>
 
         <p>Derniers billets du blog :</p>
 

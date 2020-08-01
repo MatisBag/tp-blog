@@ -1,41 +1,15 @@
 <?php
-session_start();
+
+    $title = 'Mon compte';
+    $point = 'yh';
+    include('../header.php');
+
+    if (empty($_SESSION)) {
+        header('location: ../connexion/');
+    }
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon compte</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
-</head>
-
-<body>
-
-    <header>
-        <div class="header">
-            <a href="../">
-                <img src="../assets/icon-blog.png" alt="icon du Blog">
-            </a>
-
-            <div>
-                <?php
-
-                if (empty($_SESSION)) {
-                    header('location: ../connexion/');
-                } else {
-                    echo '<a href="./"> <div class="pseudo">' . htmlspecialchars(strtoupper($_SESSION['pseudo'])) . '</div></a>
-                <span class="material-icons">
-                    account_circle
-                </span>';
-                }
-
-                ?>
-
-            </div>
-        </div>
 
     </header>
 

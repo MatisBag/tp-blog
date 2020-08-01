@@ -1,54 +1,9 @@
 <?php
-session_start();
 
-
-if (empty($_GET['billet'])) {
-    header('location:index.php');
-}
+    $title = 'Article';
+    include('header.php');
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commentaires</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-</head>
-
-<body>
-
-    <header>
-        <div class="header">
-            <a href="./">
-                <img src="./assets/icon-blog.png" alt="icon du Blog">
-            </a>
-
-            <div>
-                <?php
-
-                if (empty($_SESSION)) {
-                    echo '
-                    <a href="./connexion/"><div class="btn btn-basic">Se connecter</div></a> 
-                    <a href="./inscription/"><div class="btn btn-color">S\'inscrire</div></a> ';
-                } else {
-                    echo '<a href="./mon-compte/"> <div class="pseudo">' . htmlspecialchars(strtoupper($_SESSION['pseudo'])) . '</div></a>
-                <span class="material-icons">
-                    account_circle
-                </span>';
-                }
-
-                ?>
-
-            </div>
-        </div>
-
-    </header>
-
-
     <main>
 
         <h1>Mon super blog !</h1>

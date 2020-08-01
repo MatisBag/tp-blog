@@ -1,12 +1,17 @@
 let body = document.querySelector('body');
 let compte = document.getElementsByClassName('compte');
 let info = document.getElementsByClassName('info');
+let connected = document.getElementsByClassName('connected');
 
 
-
-compte[0].addEventListener('mouseover', function() {
+if (typeof connected[0] != 'undefined') {
+    // the variable is defined
+    compte[0].addEventListener('mouseover', function() {
     info[0].style.display = 'block';
-});
+    });
+}
+    
+
 
 info[0].addEventListener('mousehover', function () {
     this.style.display = 'block';
