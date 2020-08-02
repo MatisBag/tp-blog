@@ -1,66 +1,3 @@
-<?php
-
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8', 'root', '');
-}
-catch(Exception $e)
-{
-    die('Erreur : '.$e->getMessage());
-}
-
-
-$pseudo = "";
-$password = "";
-$auto = "";
-
-
-if (!empty($_POST))
-{
-	// Récupération des valeurs saisies
-	foreach ($_POST as $key => $value)
-	{
-		$$key = htmlentities($value);
-    }
-
-    
-    //  Récupération de l'utilisateur et de son pass hashé
-    $req = $bdd->prepare('SELECT id, pass FROM membres WHERE pseudo = :pseudo');
-    $req->execute(array('pseudo' => $pseudo));
-    $resultat = $req->fetch();
-
-    // Comparaison du pass envoyé via le formulaire avec la base
-    $isPasswordCorrect = password_verify($password , $resultat['pass']);
-    
-
-    if (!$resultat)
-    {
-        $erreur = 'Mauvais identifiant ou mot de passe !';
-    }
-    else
-    {
-        if ($isPasswordCorrect) {
-            
-            session_start();
-            $_SESSION['id'] = $resultat['id'];
-            $_SESSION['pseudo'] = $pseudo;
-
-            // if (!empty($auto)){
-            //     setcookie('pseudo', $pseudo, time() + 365*24*3600, null, null, false, true);
-            //     setcookie('password', password_hash($password, PASSWORD_DEFAULT), time() + 365*24*3600, null, null, false, true);
-            // }
-
-            header('location: ../index.php');
-
-        }
-        else {
-            $erreur = 'Mauvais identifiant ou mot de passe !';
-        }
-    }
-    $req->closeCursor();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,44 +5,69 @@ if (!empty($_POST))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connection</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="center">
+<body class="connexion">
 
-    <h1>Connection</h1>
+    <section id="formulaire">
 
-    <form method="POST" action="index.php">
+        <header>
+            <div class="social-link">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
 
-        <?php
-
-        if(isset($erreur)){
-            echo '<p class="red">'.$erreur.'</p>' ;
-        }
-
-        ?>
-
-        <div>
-            <label for="pseudo">Pseudo</label>
-            <input type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo; ?>">
-        </div>
-
-        <div>
-            <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password">
-        </div>
-
-        <div>
-            <label for="auto">Se souvenir de moi</label>
-            <input type="checkbox" name="auto" id="auto" value="auto" <?php if($auto){echo'checked';} ?> >
-        </div>
+            <a href="../index.php">
+                <img src="../assets/icon-blog2.png" alt="icon The Blog">
+            </a>
+        </header>
 
 
-        <input type="submit" value="se connecter">
+        <h2>Connexion</h2>
 
-        <a href="../index.php">s'inscrire</a>
-    </form>
+        <form method="POST" action="connexion_POST.php">
 
+            <?php
+            if (isset($_GET['incorrect'])) {
+                echo '<p class="red">Mauvais identifiant ou mot de passe !</p>';
+            }
+            ?>
+
+                <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
+            
+
+            
+                <input type="password" name="password" id="password" placeholder="Mot de passe">
+            
+
+            <div>
+                <input type="checkbox" name="auto" id="auto">
+                <label for="auto">Se souvenir de moi</label>
+            </div>
+
+
+            <input type="submit" class="btn btn-color" value="Se connecter">
+
+        </form>
+
+    </section>
+
+    <div class="login">
+        <span>Pas de compte ?</span><br>
+        Créer en un ici
+    </div>
+
+    <section id="article-info">
+        <h2>Articles récents</h2>
+    </section>
+
+
+    <script src="../js/script-connexion.js"></script>
 
 </body>
 
