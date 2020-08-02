@@ -135,6 +135,12 @@ header .social-link a:hover {
 header > a > img {
     width: 85px;
     height: auto;
+    transition: 0.2s ease-in-out;
+}
+
+header>a>img:hover {
+    transform:scale(1.2);
+    transition: 0.2s ease-in-out;
 }
 
 header .compte {
@@ -207,12 +213,13 @@ header .compte .connected div{
 .info {
     display: none;
     width: 190px;
-    background-color: #ffbb00;
+    background-color: black;
     position: absolute;
     padding: 10px;
     top: 45px;
     right: -5px;
     font-weight: 600;
+    border-radius: 3px;
 }
 
 .info-fleche {
@@ -220,22 +227,21 @@ header .compte .connected div{
     border-width: 9px;
     border-color: transparent;
     border-top-width: 0;
-    border-bottom: 9px solid #ffbb00;
+    border-bottom: 9px solid black;
     width: 0;
     height: 0;
     font-size: 0;
     line-height: 0;
     position: absolute;
     top: -9px;
-    right: 9px;
+    right: 19px;
 }
 
 .info a {
-    color: black;
+    color: #ffbb00;
     transition: .2s ease-in-out;
 }
 .info a:hover {
-    color: rgb(41, 41, 41);
     transition: .2s ease-in-out;
     margin-left: 5px;
 }
@@ -243,6 +249,7 @@ header .compte .connected div{
 .info li {
     margin-bottom: 4px;
     list-style: inside;
+    color: #ffbb00;
 }
 
 
