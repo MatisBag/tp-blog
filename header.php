@@ -38,8 +38,8 @@ session_start();
 
             if (empty($_SESSION)) {
                 echo '
-                    <a href="./inscription/"><div class="btn btn-basic">S\'inscrire</div></a> 
-                    <a href="./connexion/"><div class="btn btn-color">Connexion</div></a> ';
+                    <a href="./connexion/"><div class="btn btn-basic">S\'inscrire</div></a> 
+                    <a href="./connexion/"><div class="btn btn-color">Connexion</div></a> '; // changer le link pour inscription
             } else {
                 echo '
                     <a href="./mon-compte/" class="connected">
