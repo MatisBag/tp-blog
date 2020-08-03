@@ -2,6 +2,7 @@ let body = document.querySelector('body');
 let compte = document.getElementsByClassName('compte');
 let info = document.getElementsByClassName('info');
 let connected = document.getElementsByClassName('connected');
+let inscription = document.getElementsByClassName('btn-basic');
 
 
 if (typeof connected[0] != 'undefined') {
@@ -11,7 +12,11 @@ if (typeof connected[0] != 'undefined') {
     });
 }
     
-
+if(typeof inscription[0] != 'undefined'){
+    inscription[0].addEventListener('click', function(){
+        window.localStorage.setItem("page", "inscription");
+    });
+}
 
 info[0].addEventListener('mousehover', function () {
     this.style.display = 'block';

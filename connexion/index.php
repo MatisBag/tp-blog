@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connection</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -36,14 +37,25 @@
             if (isset($_GET['incorrect'])) {
                 echo '<p class="red">Mauvais identifiant ou mot de passe !</p>';
             }
+            elseif (isset($_GET['required'])) {
+                echo '<p class="red">Merci de bien remplir vos informations</p>';
+            }
+            elseif (isset($_GET['mail'])) {
+                echo '<p class="red">Mail incorrect</p>';
+            }
+            elseif (isset($_GET['pseudo'])) {
+                echo '<p class="red">Pseudo déjà utilisé</p>';
+            }
+            elseif (isset($_GET['different-password'])) {
+                echo '<p class="red">Mot de passe différent</p>';
+            }
+
             ?>
 
-                <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
-            
+            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
 
-            
-                <input type="password" name="password" id="password" placeholder="Mot de passe">
-            
+            <input type="password" name="password" id="password" placeholder="Mot de passe">
+
 
             <div>
                 <input type="checkbox" name="auto" id="auto">

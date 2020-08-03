@@ -30,22 +30,22 @@ if (!empty($_POST))
 
     if (($pseudo == "") or ($password == "") or ($password2 == "") or ($mail == ""))
     {
-        header ('location: index.php?required');
+        header ('location: ./?required');
     }
         
     elseif (!filter_var($mail,FILTER_VALIDATE_EMAIL))
     {
-        header ('location: index.php?mail');
+        header ('location: ./?mail');
     }
 
     elseif (($donnees['existe_pseudo'] != '0'))
     {
-        header ('location: index.php?pseudo');
+        header ('location: ./?pseudo');
     }
 
     elseif ($password != $password2)
     {
-        header ('location: index.php?different-password');
+        header ('location: ./?different-password');
     }
 
     else {
@@ -60,7 +60,7 @@ if (!empty($_POST))
         'email' => $mail)
     );
     
-    header ('location: index.php'); // mettre le bon lien
+    header ('location: ./');
 
     }
 
