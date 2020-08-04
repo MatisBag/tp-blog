@@ -29,21 +29,36 @@ if (page === "inscription") {
     inscription();
 }
 else {
-    window.localStorage.setItem("page", "connexion");
+    connexion();
 }
+
+// function widthScreen() {
+//     if (window.innerWidth >= 1000) {
+//         body.append(infoAccount[0]);
+//     }
+//     if (window.innerWidth <= 1000) {
+//         formulaire.append(infoAccount[0]);
+//     }
+    
+//     if (window.innerWidth >= 1000 && page === "inscription") {
+//         inscription();
+//     }
+//     if (window.innerWidth <= 1000 && page === "inscription") {
+//         inscription();
+//     }
+// }
+
 if (window.innerWidth >= 1000) {
     body.append(infoAccount[0]);
 }
 
-
-function widthScree() {
-    if (window.innerWidth >= 1000) {
+window.onresize = () => {
+    if (window.innerWidth >= 1000){
         body.append(infoAccount[0]);
     }
     if (window.innerWidth <= 1000) {
         formulaire.append(infoAccount[0]);
     }
-    
     if (window.innerWidth >= 1000 && page === "inscription") {
         inscription();
     }
@@ -51,11 +66,9 @@ function widthScree() {
         inscription();
     }
 }
-window.onresize = widthScree;
 
 
 function inscription() {
-    page = "inscription";
     window.localStorage.setItem("page", "inscription");
 
     infoAccount[0].classList.add('inscription');
@@ -100,7 +113,6 @@ function inscription() {
 };
 
 function connexion() {
-    page = "connexion";
     window.localStorage.setItem("page", "connexion");
 
     if (window.innerWidth <= 1000){

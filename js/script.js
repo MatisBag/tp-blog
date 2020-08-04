@@ -3,6 +3,7 @@ let compte = document.getElementsByClassName('compte');
 let info = document.getElementsByClassName('info');
 let connected = document.getElementsByClassName('connected');
 let inscription = document.getElementsByClassName('btn-basic');
+let connexion = document.getElementsByClassName('btn-color');
 
 
 if (typeof connected[0] != 'undefined') {
@@ -15,6 +16,11 @@ if (typeof connected[0] != 'undefined') {
 if(typeof inscription[0] != 'undefined'){
     inscription[0].addEventListener('click', function(){
         window.localStorage.setItem("page", "inscription");
+    });
+}
+else if (typeof connexion[0] != 'undefined') {
+    connexion[0].addEventListener('click', function () {
+        window.localStorage.setItem("page", "connexion");
     });
 }
 
