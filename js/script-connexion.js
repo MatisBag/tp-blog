@@ -29,7 +29,8 @@ if (page === "inscription") {
     inscription();
 }
 else {
-    connexion();
+    page = 'connexion'
+    window.localStorage.setItem("page", "connexion");
 }
 
 // function widthScreen() {
@@ -69,6 +70,7 @@ window.onresize = () => {
 
 
 function inscription() {
+    page = 'inscription';
     window.localStorage.setItem("page", "inscription");
 
     infoAccount[0].classList.add('inscription');
@@ -113,6 +115,7 @@ function inscription() {
 };
 
 function connexion() {
+    page = 'connexion'
     window.localStorage.setItem("page", "connexion");
 
     if (window.innerWidth <= 1000){
@@ -143,13 +146,12 @@ function connexion() {
     articleH2.style.color = '';
 
     infoAccount[0].classList.remove('inscription');
-    infoAccount[0].innerHTML = "<span>Pas de compte ?</span><br>Créez en un içi";
-
+    infoAccount[0].innerHTML = "<span>Pas de compte ?</span><br>Créer en un içi";
 }
 
 
 infoAccount[0].addEventListener('click', function () { // Au clic
-    if (this.classList.contains('inscription')) { // si je suis sur la page inscription ...
+    if (page === 'inscription') { // si je suis sur la page inscription ...
         connexion();
     } else { // si je suis sur la page de connexion ...
         inscription();
