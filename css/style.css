@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* RESET */
 
@@ -6,6 +13,7 @@
     padding: 0;
     font-family: 'Work Sans', Arial, Helvetica, sans-serif;
     list-style: none;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -16,6 +24,9 @@ html {
 
 img {
     max-width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -34,6 +45,8 @@ h2 {
     font-size: 3rem;
     font-weight: 800;
     letter-spacing: .3rem;
+    -webkit-transition-delay: 0.25s;
+    -o-transition-delay: 0.25s;
     transition-delay: 0.25s;
     margin-bottom: 10px;
 }
@@ -42,6 +55,10 @@ h2 {
     text-align: center;
     border-bottom: none;
     color: #ffbb00;
+}
+
+#article-info h2 {
+    color: black;
 }
 
 h1, h3 {
@@ -81,16 +98,27 @@ a {
 
 body {
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
 body.center {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     width: 100%;
     max-width: 1600px;
@@ -105,8 +133,14 @@ header {
     width: 100%;
     max-width: 1500px;
     margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 24px 12px;
     position: relative;
@@ -119,7 +153,12 @@ header .compte img {
 header .social-link {
     display: none;
     height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     font-size: 1.1rem;
 }
@@ -129,9 +168,17 @@ header .social-link i {
     border-radius: 40%;
     padding: 5px 0;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
@@ -141,16 +188,22 @@ body.connexion header .social-link i {
 
 header .social-link i:hover {
     border: 1px solid black;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
 body.connexion header .social-link i:hover {
     border: 1px solid rgba(253, 253, 253, 0);
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
 header .social-link a {
     color: rgb(202, 202, 202);
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
     margin: 5px;
     width: 100%;
@@ -162,6 +215,8 @@ body.connexion header .social-link a {
 
 header .social-link a:hover {
     color: black;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
@@ -172,16 +227,26 @@ body.connexion header .social-link a:hover {
 header>a>img {
     width: 85px;
     height: auto;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
 header>a>img:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
     transform: scale(1.2);
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
 header .compte {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     font-weight: 700;
     position: relative;
@@ -194,13 +259,21 @@ header .compte a {
 header .compte .connected {
     font-size: 1.2rem;
     color: #ffbb00;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
 header .compte .connected:hover {
     color: #c59100;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
@@ -230,23 +303,31 @@ header .compte .connected div {
 
 .btn-basic {
     border: 1.5px solid #ffbb00;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
 .btn-basic:hover {
     color: #ffbb00;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
 .btn-color {
     background-color: #ffbb00;
     border: 1px solid #ffbb00;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
 .btn-color:hover {
     background-color: black;
     border: 1px solid black;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
     color: #ffc62a;
 }
@@ -284,10 +365,14 @@ header .compte .connected div {
 
 .info a {
     color: #ffbb00;
+    -webkit-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
     transition: .2s ease-in-out;
 }
 
 .info a:hover {
+    -webkit-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
     transition: .2s ease-in-out;
     margin-left: 5px;
 }
@@ -314,15 +399,24 @@ header .compte .connected div {
 /* CONNEXION / S'INSCRIRE */
 
 #formulaire {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     background-color: black;
     color: white;
     height: 100%;
+    -webkit-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
     transition: .2s ease-in-out;
 }
 
 #formulaire form {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     width: 100%;
     max-width: 450px;
@@ -335,12 +429,18 @@ header .compte .connected div {
 }
 
 #formulaire form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
 }
 
 form input[type="text"], form input[type="email"], form input[type="password"], form input[type="submit"] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
     margin: 10px 0;
     width: 100%;
     height: 40px;
@@ -366,9 +466,49 @@ form label {
     font-weight: 300;
 }
 
+input::-webkit-input-placeholder {
+    text-align: center;
+    color: rgb(63, 63, 63);
+}
+
+input::-moz-placeholder {
+    text-align: center;
+    color: rgb(63, 63, 63);
+}
+
+input:-ms-input-placeholder {
+    text-align: center;
+    color: rgb(63, 63, 63);
+}
+
+input::-ms-input-placeholder {
+    text-align: center;
+    color: rgb(63, 63, 63);
+}
+
 input::placeholder {
     text-align: center;
     color: rgb(63, 63, 63);
+}
+
+input:focus::-webkit-input-placeholder {
+    text-align: center;
+    color: rgb(90, 90, 90);
+}
+
+input:focus::-moz-placeholder {
+    text-align: center;
+    color: rgb(90, 90, 90);
+}
+
+input:focus:-ms-input-placeholder {
+    text-align: center;
+    color: rgb(90, 90, 90);
+}
+
+input:focus::-ms-input-placeholder {
+    text-align: center;
+    color: rgb(90, 90, 90);
 }
 
 input:focus::placeholder {
@@ -404,14 +544,25 @@ input:focus::placeholder {
     right: 0;
     width: 50%;
     height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 800px) {
     header .social-link {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
     header {
@@ -421,6 +572,8 @@ input:focus::placeholder {
         position: absolute;
         top: 52%;
         Left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     }
     header>a>img {
@@ -437,15 +590,22 @@ input:focus::placeholder {
 @media screen and (min-width: 1000px) {
     /* CONNEXION S'INSCRIRE */
     body.connexion {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
     }
     #formulaire {
         width: 50%;
         position: absolute;
+        -webkit-transition: 0.5s ease-in-out;
+        -o-transition: 0.5s ease-in-out;
         transition: 0.5s ease-in-out;
         /* transform: translateX(100%); */
     }
     #article-info {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
     .login {

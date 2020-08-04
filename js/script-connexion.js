@@ -1,9 +1,11 @@
+// Elements globaux
 let body = document.querySelector('body');
 let formulaire = document.getElementById('formulaire');
 let form = document.querySelector('form');
 let articleInfo = document.getElementById('article-info');
 let infoAccount = document.getElementsByClassName('login');
 
+// enfants
 let formDiv = document.querySelector('form div');
 let formH2 = document.querySelector('#formulaire h2');
 let articleH2 = document.querySelector('#article-info h2');
@@ -12,7 +14,7 @@ let logo = document.querySelector('header img');
 let pRed = document.getElementsByClassName('red');
 
 
-// Nouveau Inputs email/password
+// Créa des Inputs email/password
 let inputMail = document.createElement('input');
 inputMail.setAttribute('type', 'email');
 inputMail.setAttribute('name', 'mail');
@@ -23,8 +25,13 @@ inputPassword.setAttribute('type', 'password');
 inputPassword.setAttribute('name', 'password2');
 inputPassword.setAttribute('placeholder', 'Confirmation mot de passe');
 
-let page = localStorage.getItem("page"); // Récupérer l'information vers quelle page veut aller le visiteur
 
+
+// Récupérer l'information vers quelle page veut aller le visiteur
+let page = localStorage.getItem("page"); 
+
+
+// Affichage de la bonne page
 if (page === "inscription") {
     inscription();
 }
@@ -33,42 +40,13 @@ else {
     window.localStorage.setItem("page", "connexion");
 }
 
-// function widthScreen() {
-//     if (window.innerWidth >= 1000) {
-//         body.append(infoAccount[0]);
-//     }
-//     if (window.innerWidth <= 1000) {
-//         formulaire.append(infoAccount[0]);
-//     }
-    
-//     if (window.innerWidth >= 1000 && page === "inscription") {
-//         inscription();
-//     }
-//     if (window.innerWidth <= 1000 && page === "inscription") {
-//         inscription();
-//     }
-// }
 
+// Placement du bouton de changement de page
 if (window.innerWidth >= 1000) {
     body.append(infoAccount[0]);
 }
 
-window.onresize = () => {
-    if (window.innerWidth >= 1000){
-        body.append(infoAccount[0]);
-    }
-    if (window.innerWidth <= 1000) {
-        formulaire.append(infoAccount[0]);
-    }
-    if (window.innerWidth >= 1000 && page === "inscription") {
-        inscription();
-    }
-    if (window.innerWidth <= 1000 && page === "inscription") {
-        inscription();
-    }
-}
-
-
+// connexion -> inscription
 function inscription() {
     page = 'inscription';
     window.localStorage.setItem("page", "inscription");
@@ -96,8 +74,8 @@ function inscription() {
     }
 
     // Same pour le cote article
-    articleH2.textContent = 'Les plus consultés';
     articleH2.style.color = '#ffbb00';
+    articleH2.textContent = 'Les plus consultés';
 
     // div créer compte / connecter
     infoAccount[0].innerHTML = "<span>Déjà un compte ?</span><br>Connectez-vous";
@@ -114,6 +92,8 @@ function inscription() {
 
 };
 
+
+// inscription -> connexion
 function connexion() {
     page = 'connexion'
     window.localStorage.setItem("page", "connexion");
@@ -149,6 +129,35 @@ function connexion() {
     infoAccount[0].innerHTML = "<span>Pas de compte ?</span><br>Créer en un içi";
 }
 
+
+// Optimisation du JS
+function debounce(callback, interval) {
+    let timer;
+    return function debounced(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            callback(...args);
+        }, interval);
+    }
+}
+
+window.onresize = debounce(widthScreen, 200);
+
+
+function widthScreen() {
+    if (window.innerWidth >= 1000) {
+        body.append(infoAccount[0]);
+    }
+    if (window.innerWidth <= 1000) {
+        formulaire.append(infoAccount[0]);
+    }
+    if (window.innerWidth >= 1000 && page === "inscription") {
+        inscription();
+    }
+    if (window.innerWidth <= 1000 && page === "inscription") {
+        inscription();
+    }
+}
 
 infoAccount[0].addEventListener('click', function () { // Au clic
     if (page === 'inscription') { // si je suis sur la page inscription ...
