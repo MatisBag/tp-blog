@@ -377,11 +377,11 @@ input:focus::placeholder {
 }
 
 .login {
+    position: relative;
     z-index: 5;
     font-size: 1rem;
     text-align: right;
     color: #ffbb00;
-    position: absolute;
     right: 0;
     bottom: 0;
     padding: 15px;
@@ -449,6 +449,7 @@ input:focus::placeholder {
         display: flex;
     }
     .login {
+        position: absolute;
         right: 50%;
     }
 }

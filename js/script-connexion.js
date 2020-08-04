@@ -1,3 +1,4 @@
+let body = document.querySelector('body');
 let formulaire = document.getElementById('formulaire');
 let form = document.querySelector('form');
 let articleInfo = document.getElementById('article-info');
@@ -30,8 +31,19 @@ if (page === "inscription") {
 else {
     window.localStorage.setItem("page", "connexion");
 }
+if (window.innerWidth >= 1000) {
+    body.append(infoAccount[0]);
+}
+
 
 function widthScree() {
+    if (window.innerWidth >= 1000) {
+        body.append(infoAccount[0]);
+    }
+    if (window.innerWidth <= 1000) {
+        formulaire.append(infoAccount[0]);
+    }
+    
     if (window.innerWidth >= 1000 && page === "inscription") {
         inscription();
     }
