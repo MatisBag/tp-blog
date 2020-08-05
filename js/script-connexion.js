@@ -36,7 +36,7 @@ if (page === "inscription") {
     inscription();
 }
 else {
-    page = 'connexion'
+    page = 'connexion';
     window.localStorage.setItem("page", "connexion");
 }
 

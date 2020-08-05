@@ -17,7 +17,7 @@
 
     <main>
 
-        <h1>Votre compte</h1>
+        <h2>Votre compte</h2>
 
         <?php
         try {
