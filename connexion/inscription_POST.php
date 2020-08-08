@@ -65,4 +65,6 @@ if (!empty($_POST))
     }
 
 }
-//else
+else {
+    header('location: ./?required');
+}

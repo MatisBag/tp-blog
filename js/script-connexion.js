@@ -9,6 +9,7 @@ let infoAccount = document.getElementsByClassName('login');
 let formDiv = document.querySelector('form div');
 let formH2 = document.querySelector('#formulaire h2');
 let articleH2 = document.querySelector('#article-info h2');
+let password = document.getElementById('password');
 let inputSubmit = document.querySelector('form input[type="submit"]');
 let logo = document.querySelector('header img');
 let pRed = document.getElementsByClassName('red');
@@ -36,7 +37,6 @@ if (page === "inscription") {
     inscription();
 }
 else {
-    page = 'connexion';
     window.localStorage.setItem("page", "connexion");
 }
 
@@ -48,13 +48,8 @@ if (window.innerWidth >= 1000) {
 
 // connexion -> inscription
 function inscription() {
-    page = 'inscription';
-    window.localStorage.setItem("page", "inscription");
-
-    infoAccount[0].classList.add('inscription');
-
     // Insertion pour s'inscrire
-    form.insertBefore(inputMail, form.firstChild);
+    form.insertBefore(inputMail, password);
     form.insertBefore(inputPassword, formDiv);
 
     // Suppression connexion auto
@@ -69,7 +64,7 @@ function inscription() {
     inputSubmit.style.backgroundColor = 'black';
     logo.src = '../assets/icon-blog3.png';
     form.action = 'inscription_POST.php';
-    if (typeof pRed[0] != 'undefined') {
+    if ((typeof pRed[0] != 'undefined') && page != "inscription") {
         pRed[0].style.display = 'none';
     }
 
@@ -90,14 +85,13 @@ function inscription() {
         infoAccount[0].style.color = 'black';
     }
 
+    page = 'inscription';
+    window.localStorage.setItem("page", "inscription");
 };
 
 
 // inscription -> connexion
 function connexion() {
-    page = 'connexion'
-    window.localStorage.setItem("page", "connexion");
-
     if (window.innerWidth <= 1000){
         infoAccount[0].style.color = '';
     }
@@ -125,8 +119,10 @@ function connexion() {
     articleH2.textContent = 'Articles récents';
     articleH2.style.color = '';
 
-    infoAccount[0].classList.remove('inscription');
     infoAccount[0].innerHTML = "<span>Pas de compte ?</span><br>Créer en un içi";
+
+    page = 'connexion';
+    window.localStorage.setItem("page", "connexion");
 }
 
 

@@ -95,7 +95,7 @@ a {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -518,6 +518,7 @@ p.paraMobile {
 /* CONNEXION / S'INSCRIRE */
 
 #formulaire {
+    flex: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
