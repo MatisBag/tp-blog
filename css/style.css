@@ -42,41 +42,35 @@ p {
 /* DEFAULT */
 
 h2 {
+    text-align: center;
     font-size: 3rem;
     font-weight: 800;
     letter-spacing: .3rem;
     -webkit-transition-delay: 0.25s;
     -o-transition-delay: 0.25s;
     transition-delay: 0.25s;
-    margin-bottom: 10px;
 }
 
-#formulaire h2, #article-info h2 {
-    text-align: center;
-    border-bottom: none;
+#formulaire h2 {
+    margin-bottom: 10px;
     color: #ffbb00;
 }
 
 #article-info h2 {
-    color: black;
-}
-
-h1, h3 {
-    text-align: center;
+    margin-bottom: 10px;
     color: black;
 }
 
 h1 {
-    font-size: 4rem;
+    text-align: center;
+    font-size: 1.5rem;
     font-weight: 800;
-    letter-spacing: 0.3rem;
+    letter-spacing: .3rem;
+    line-height: 1;
 }
 
 h3 {
-    background-color: black;
-    color: white;
-    font-size: 0.9em;
-    margin-bottom: 0px;
+    font-size: 1.6rem;
 }
 
 .red {
@@ -385,6 +379,125 @@ header .compte .connected div {
 
 /* FIN HEADER */
 
+/* PAGE ARTICLE */
+
+article {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1300px;
+    padding: 12px 12px;
+}
+
+article h1+hr {
+    width: 50px;
+    height: 3px;
+    border: none;
+    background-color: #ffbb00;
+    margin: 0 auto 10px auto;
+}
+
+article figure {
+    margin: 0 auto;
+    width: 100%;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+}
+
+p.paraMobile {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    margin: 20px 0;
+    padding: 0 10px;
+}
+
+.paragraphes {
+    display: none;
+    width: 100%;
+}
+
+.paragraphes span, .paraMobile span {
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: 0.2rem;
+    color: #ffbb00;
+    font-weight: 800;
+}
+
+.paraMobile span {
+    font-size: 2rem;
+}
+
+.paragraphes p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 50%;
+    margin: 20px 0;
+    padding: 0 2vw;
+    text-align: justify;
+}
+
+.paragraphes p:nth-child(2) {
+    padding: 1.2rem 2vw;
+}
+
+#commentaires form {
+    margin: 10px 0 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#commentaires textarea {
+    box-sizing: initial;
+    max-width: 93%;
+    min-width: 93%;
+    min-height: 30px;
+    margin: 0 auto;
+    padding: 10px;
+    display: block;
+    border-radius: 2px;
+    border: 2px solid #ffbb00;
+}
+
+#commentaires textarea:focus {
+    outline: none;
+    border-radius: 2px;
+    border: 2px solid #c79200;
+}
+
+#commentaires label {
+    margin-bottom: 5px;
+}
+
+#commentaires input[type="submit"]:hover {
+    background-color: rgb(187, 187, 187);
+}
+
+.flex {
+    margin-top: 10px;
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+}
+
+.flex .btn {
+    margin: 10px;
+    font-weight: 600;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.commentaire {
+    margin: 10px 0;
+}
+
 .news {
     width: 100%;
     max-width: 1100px;
@@ -395,6 +508,8 @@ header .compte .connected div {
     background-color: #CCCCCC;
     margin-top: 0px;
 }
+
+/* FIN ARTICLE */
 
 /* CONNEXION / S'INSCRIRE */
 
@@ -452,7 +567,7 @@ form input[type="text"], form input[type="email"], form input[type="password"], 
     text-align: center;
 }
 
-form input[type="submit"] {
+#formulaire form input[type="submit"] {
     margin-top: 5vh;
 }
 
@@ -462,7 +577,7 @@ form input[type="checkbox"] {
     margin-right: 5px;
 }
 
-form label {
+#formulaire form label {
     font-weight: 300;
 }
 
@@ -523,7 +638,8 @@ input:focus::placeholder {
     text-align: right;
     color: #ffbb00;
     right: 0;
-    bottom: 0;
+    top: 0px;
+    margin: 10px 0;
     padding: 15px;
     letter-spacing: .1rem;
 }
@@ -559,6 +675,24 @@ input:focus::placeholder {
     transition: 0.5s ease-in-out;
 }
 
+/* FIN CONNEXION / INSCRIPTION */
+
+/* MON COMPTE */
+
+#compte {
+    padding: 12px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+/* FIN MON COMPTE */
+
+
 @media screen and (min-width: 800px) {
     header .social-link {
         display: -webkit-box;
@@ -584,6 +718,33 @@ input:focus::placeholder {
     }
     header .compte .connected span {
         font-size: 1.7rem;
+    }
+    article {
+        padding: 12px 24px;
+    }
+    article h1 {
+        font-size: 2rem;
+        letter-spacing: .3rem;
+        line-height: 1.5;
+    }
+    p.paraMobile {
+        display: none;
+    }
+    .paragraphes {
+        display: flex;
+    }
+    h3 {
+        font-size: 2rem;
+    }
+    #commentaires textarea {
+        max-width: 97%;
+        min-width: 97%;
+    }
+    #commentaires input[type="submit"] {
+        max-width: 300px;
+    }
+    #compte {
+        padding: 12px 24px;
     }
 }
 

@@ -10,12 +10,9 @@
 
 ?>
 
-
-    </header>
-
-
-
     <main>
+
+    <section id="compte">
 
         <h2>Votre compte</h2>
 
@@ -52,6 +49,10 @@
 
 
         <a href="../deconnection.php">se déconnecter</a>
+
+
+    </section>
+
 
     </main>
 
