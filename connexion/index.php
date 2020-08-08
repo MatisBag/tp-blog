@@ -44,6 +44,8 @@
                 echo '<p class="red">Pseudo déjà utilisé</p>';
             } elseif (isset($_GET['different-password'])) {
                 echo '<p class="red">Mot de passe différent</p>';
+            } elseif (isset($_GET['succes'])) {
+                echo '<p class="green">Informations enregistrées</p>';
             }
 
             ?>

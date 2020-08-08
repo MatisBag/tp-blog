@@ -60,7 +60,7 @@ if (!empty($_POST))
         'email' => $mail)
     );
     
-    header ('location: ./');
+    header ('location: ./?succes');
 
     }
 
