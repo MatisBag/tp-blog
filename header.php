@@ -23,9 +23,9 @@ session_start();
 
     <header>
         <div class="social-link">
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
 
         <a href="<?php if (isset($point)) {
@@ -43,14 +43,17 @@ session_start();
                 echo '
                     <a href="./connexion/"><div class="btn btn-basic">S\'inscrire</div></a> 
                     <a href="./connexion/"><div class="btn btn-color">Connexion</div></a> '; // changer le link pour inscription
-            } else {
-                echo '
-                    <a href="./mon-compte/" class="connected">
-                        <div class="pseudo">' . htmlspecialchars(strtoupper($_SESSION['pseudo'])) . '</div>
-                        <span id="account" class="material-icons">
-                            account_circle
-                        </span>
-                    </a>';
+            } else { ?>
+
+                <a href="<?php if (isset($point)) {
+                                echo '.';
+                            } ?>./mon-compte/" class="connected">
+                    <div class="pseudo"><?php echo htmlspecialchars(strtoupper($_SESSION['pseudo'])); ?></div>
+                    <span id="account" class="material-icons">
+                        account_circle
+                    </span>
+                </a>
+            <?php
             }
 
             ?>

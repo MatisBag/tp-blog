@@ -1,60 +1,91 @@
 <?php
 
-    $title = 'Mon compte';
-    $point = 'yh';
-    include('../header.php');
+$title = 'Mon compte';
+$point = 'yh';
+include('../header.php');
 
-    if (empty($_SESSION)) {
-        header('location: ../connexion/');
-    }
+if (empty($_SESSION)) {
+    header('location: ../connexion/');
+}
 
 ?>
 
-    <main>
+<main>
 
     <section id="compte">
 
-        <h2>Votre compte</h2>
+        <h2>Mon compte</h2>
 
-        <?php
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8', 'root', '');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
+        <div class="info-compte">
 
-        $req = $bdd->prepare('SELECT pseudo, email, date_inscription FROM membres WHERE id = :id_membre');
-        $req->execute(array('id_membre' => $_SESSION['id']));
-        $donnees = $req->fetch();
-        ?>
+            <?php
+            try {
+                $bdd = new PDO('mysql:host=localhost;dbname=espace_membres;charset=utf8', 'root', '');
+            } catch (Exception $e) {
+                die('Erreur : ' . $e->getMessage());
+            }
 
-        <p>
-            Pseudo : <?php echo htmlspecialchars($donnees['pseudo']); ?>
-        </p>
+            $req = $bdd->prepare('SELECT pseudo, email, date_inscription FROM membres WHERE id = :id_membre');
+            $req->execute(array('id_membre' => $_SESSION['id']));
+            $donnees = $req->fetch();
+            ?>
 
-        <p>
-            Mail : <?php echo htmlspecialchars($donnees['email']); ?>
-        </p>
-
-        <p>
-            Date d'inscription : <?php echo htmlspecialchars($donnees['date_inscription']); ?>
-        </p>
-
-        <?php
-
-        $req->closeCursor();
-
-        ?>
+            <form action="" method="POST">
 
 
+                <?php
+                if (isset($_GET['required'])) {
+                    echo '<p class="red">Merci de bien remplir les champs obligatoires</p>';
+                } elseif (isset($_GET['mail'])) {
+                    echo '<p class="red">Mail incorrect</p>';
+                } elseif (isset($_GET['pseudo'])) {
+                    echo '<p class="red">Pseudo déjà utilisé</p>';
+                } elseif (isset($_GET['different-password'])) {
+                    echo '<p class="red">Mot de passe différent</p>';
+                } elseif (isset($_GET['succes'])) {
+                    echo '<p class="green">Informations enregistrées</p>';
+                }
+                ?>
 
-        <a href="../deconnection.php">se déconnecter</a>
+                <p>
+                    <label for="pseudo">Pseudo : <span class="red">*</span></label>
+                    <input type="text" name="pseudo" id="pseudo" value="<?php echo htmlspecialchars($donnees['pseudo']); ?>" readonly>
+                </p>
+
+                <p>
+                    <label for="email">Mail : <span class="red">*</span></label>
+                    <input type="email" name="email" id="mail" value="<?php echo htmlspecialchars($donnees['email']); ?>" readonly>
+                </p>
+
+                <p>
+                    <label for="date_inscription">Date d'inscription : </label>
+                    <input type="text" name="date_inscription" id="date_inscription" value="<?php echo htmlspecialchars($donnees['date_inscription']); ?>" readonly>
+                </p>
+
+            </form>
+
+
+
+            <?php
+
+            $req->closeCursor();
+
+            ?>
+
+            <div class="buttons">
+                <div id="modifier">Modifier</div>
+                <a href="../deconnection.php">Se déconnecter</a>
+            </div>
+
+        </div>
 
 
     </section>
 
 
-    </main>
+</main>
+
+<script src="../js/script-compte.js"></script>
 
 
 

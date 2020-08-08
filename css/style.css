@@ -31,6 +31,7 @@ img {
 }
 
 p {
+    margin: 10px 0;
     letter-spacing: .025em;
     font-size: 1rem;
     font-weight: 400;
@@ -75,6 +76,9 @@ h3 {
 
 .red {
     color: red;
+}
+.green {
+    color: green;
 }
 
 a {
@@ -553,7 +557,10 @@ p.paraMobile {
     width: 100%;
 }
 
-form input[type="text"], form input[type="email"], form input[type="password"], form input[type="submit"] {
+#formulaire form input[type="text"],
+#formulaire form input[type="email"],
+#formulaire form input[type="password"],
+#formulaire form input[type="submit"] {
     -moz-appearance: none;
     -webkit-appearance: none;
     margin: 10px 0;
@@ -638,7 +645,7 @@ input:focus::placeholder {
     text-align: right;
     color: #ffbb00;
     right: 0;
-    top: 0px;
+    bottom: 0px;
     margin: 10px 0;
     padding: 15px;
     letter-spacing: .1rem;
@@ -685,13 +692,90 @@ input:focus::placeholder {
     margin: 0 auto;
 }
 
+.info-compte {
+    padding: 30px 0;
+}
+
+.info-compte p{
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-compte label {
+    margin-right: 10px;
+}
+
+.info-compte input{
+    max-height: 32px;
+    min-width: 180px;
+    padding: 5px 12px;
+    line-height: 20px;
+    color: #6d7072;
+    vertical-align: middle;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: inset 0 1px 0 rgba(225, 228, 232, .2);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+}
+
+#modifier {
+    padding: 5px 12px;
+    height: fit-content;
+    background-color: #ffd76a;
+    vertical-align: middle;
+    border: 1px solid black;
+    font-weight: 600;
+    border-radius: 2px;
+    outline: none;
+}
+
+#modifier:hover {
+    cursor: pointer;
+    background-color: #ffe18e;
+}
+
+.buttons a {
+    align-self: flex-end;
+    padding: 5px 12px;
+    height: fit-content;
+    background-color: rgb(250, 250, 250);
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 400;
+    border-radius: 2px;
+}
+
+.buttons a:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.info-compte input[type="submit"]{
+    color: black;
+    background-color: rgb(224, 224, 224);
+}
+
+.info-compte input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+}
 
 
 
 
 
 /* FIN MON COMPTE */
-
+@media screen and (min-width: 500px){
+    #compte {
+        width: 80%;
+    }
+}
 
 @media screen and (min-width: 800px) {
     header .social-link {
@@ -745,6 +829,12 @@ input:focus::placeholder {
     }
     #compte {
         padding: 12px 24px;
+    }
+    .info-compte label {
+        width: 310px;
+    }
+    .info-compte p {
+        justify-content: initial;
     }
 }
 
